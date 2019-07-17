@@ -50,10 +50,166 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	// border: 1px dashed gray !important;
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+// Variables
+@title-font: 'Nunito Sans', sans-serif;
+@main-font: 'Roboto', sans-serif;
+@subtitle-color: #525252;
+
+// Mixins
+.flex-box(){
+	display: flex;
+}
+
+.mobile-text-align(){
+	@media screen and (max-width: 500px) {
+		text-align: center;
+	}
+}
+
+.footer-spacing(){
+	width: 45%;
+	h2 {
+		padding-bottom: 8%
+	}
+}
+
+// Styling starts here
+a {
+	text-decoration: none;
+	color: black;
+	font-weight: 600;
+	font-family: @title-font;
+}
+
+h1, h2, h3 {
+	font-weight: 600;
+	font-family: @title-font;
+}
+
+h1 {
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+	color: @subtitle-color;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+li {
+	line-height: 3;
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.container {
+	max-width: 60%;
+	height: 100%;
+	margin: auto;
+	font-family: @main-font;
+	line-height: 1.6;
+	@media screen and (max-width: 500px) {
+		max-width: 100%;
+		padding: 0 5%;
+	}
+}
+
+.copyright {
+	padding: 5% 0;
+	text-align: center;
+}
+
+header {
+	padding: 2% 0;
+	nav {
+		.flex-box();
+		justify-content: flex-end;
+		.nav-list {
+			.flex-box();
+			justify-content: space-around;
+			width: 50%;
+			@media screen and (max-width: 800px) {
+				width: 100%;
+			}
+			li {
+				list-style-type: none;
+			}
+		}
+	}
+}	
+
+.main-content {
+	.title {
+		padding: 3%;
+		h1 {
+			margin-bottom: 0.5%;
+			.mobile-text-align();
+		}
+		h2 {
+			text-align: right;
+			.mobile-text-align();
+		}
+	}
+	.intro {
+		padding: 3% 0;
+		width: 80%;
+		margin: auto;
+		font-size: 1.5rem;
+		@media screen and (max-width: 800px) {
+			width: 100%;
+		}
+	}
+	.work-history {
+		padding-top: 5%;
+		h2 {
+			padding-bottom: 5%;
+		}
+	}
+}
+
+.work-history-list{
+	div {
+	.flex-box();
+	justify-content: space-between;
+	h3 {
+		width: 45%;
+	}
+	.job-title {
+		text-align: right;
+	}
+	}
+	p {
+		padding: 3% 0;
+		margin-bottom: 3%;
+		width: 50%;
+	}
+}
+
+footer {
+	padding: 3% 0;
+	.flex-box();
+	justify-content: space-between;
+	.contact {
+		.footer-spacing();
+		li {
+			font-weight: 600;
+		}
+	}
+	.skills {
+		.footer-spacing();
+		li {
+			list-style-type: none;
+		}
+	}
+}
